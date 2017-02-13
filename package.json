@@ -21,7 +21,8 @@
   "dependencies": {
     "rpio2": "^0.4.1",
     "debug": "^2.6.1",
-    "system-sleep"
+    "system-sleep": "^1.2.0",
+    "deasync": "°0.1.9"
   },
   "bugs": {
     "url": "https://github.com/siliconchris1973/ledconodel/issues"
