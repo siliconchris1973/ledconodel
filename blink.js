@@ -72,8 +72,8 @@ function blinkled(ledToBlink, howManyTimes=5, interval=500) {
  */
 function watchfeed(){
   blinkled(redled,5,10000);
-  blinkled(greenled,5,10000);
-  blinkled(blueled,5,10000);
+  setTimeout(blinkled(greenled,5,10000),10000);
+  setTimeout(blinkled(blueled,5,10000),10000);
 }
 
 watchfeed();
