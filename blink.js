@@ -21,8 +21,8 @@ var options = {
 /*
  * set the hardware pins for the 3 leds as a new instance of Gpio
  */
-const greenled = new Gpio(19);
 const redled = new Gpio(13);
+const greenled = new Gpio(19);
 const blueled = new Gpio(26);
 
 /*
@@ -36,9 +36,9 @@ function turnOffLed(led) {
  * Set the initial state to low.  The state is set prior to the pin becoming
  * active, so is safe for devices which require a stable setup.
  */
+turnOffLed(redled);
 turnOffLed(greenled);
 turnOffLed(blueled);
-turnOffLed(redled);
 //greenled.open(Gpio.OUTPUT, Gpio.LOW);
 //redled.open(Gpio.OUTPUT, Gpio.LOW);
 //blueled.open(Gpio.OUTPUT, Gpio.LOW);
@@ -62,11 +62,7 @@ var feedname = "ledfeeder";
  */
 function blinkled(ledToBlink, howManyTimes=5, interval=500) {
   debug('blinkled called, payload is %s howManyTimes is %s and interval is %s', ledToBlink, howManyTimes, interval);
-
-  var gs = Gpio.createWriteStream(ledToBlink, {
-    mode: Gpio.OUTPUT,
-    state: Gpio.HIGH
-  });
+  ledToBlink.open(Gpio.OUTPUT, Gpio.HIGH)
   setTimeout(turnOffLed(ledToBlink), interval);
 }
 
