@@ -11,7 +11,7 @@ debug('booting %s', name);
  *
  */
 //var rpio = require('rpio2');
-const Gpio = require('../lib/index.js').Gpio;
+const Gpio = require('rpio2').Gpio;
 
 var options = {
   gpiomem: true,          /* Use /dev/gpiomem */
