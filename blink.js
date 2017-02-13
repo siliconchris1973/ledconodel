@@ -49,13 +49,13 @@ var feedname = "ledfeeder";
 /*
  * the main watcher function - need to do this asynchronously
  */
-function watchfeed(data, howmanytimes) {
-  debug('watchfeed called, payload is %s and number is %i', data, howmanytimes);
+function watchfeed(data, howmanytimes, interval) {
+  debug('watchfeed called, payload is %s howmanytimes is %s and interval is %s', data, howmanytimes, interval);
 	if (data == "red") {
     for (var i=0; i<howmanytimes; i++) {
       debug('red on');
       redled.open(Gpio.OUTPUT, Gpio.HIGH);
-      redled.sleep(500);
+      redled.sleep(interval);
       debug('red off');
 		  redled.open(Gpio.OUTPUT, Gpio.LOW);
     }
@@ -63,7 +63,7 @@ function watchfeed(data, howmanytimes) {
     for (var i=0; i<howmanytimes; i++) {
       debug('green on');
       greenled.open(Gpio.OUTPUT, Gpio.HIGH);
-      greenled.sleep(500);
+      greenled.sleep(interval);
       debug('green off');
 		  greenled.open(Gpio.OUTPUT, Gpio.LOW);
     }
@@ -71,7 +71,7 @@ function watchfeed(data, howmanytimes) {
     for (var i=0; i<howmanytimes; i++) {
       debug('blue on');
       blueled.open(Gpio.OUTPUT, Gpio.HIGH);
-      blueled.sleep(500);
+      blueled.sleep(interval);
       debug('blue off');
 		  blueled.open(Gpio.OUTPUT, Gpio.LOW);
     }
@@ -81,13 +81,13 @@ function watchfeed(data, howmanytimes) {
 }
 
 
-watchfeed("red",5);
-watchfeed("green",5);
-watchfeed("blue",5);
+watchfeed("red",5,1000);
+watchfeed("green",5,5000);
+watchfeed("blue",5,2000);
 debug('purple led is wrong');
-watchfeed("purple",5);
+watchfeed("purple",5,100);
 
-debug('cloding GPIO');
+debug('closing GPIO');
 redled.close();
 greenled.close();
 blueled.close();
