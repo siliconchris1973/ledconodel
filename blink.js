@@ -61,7 +61,7 @@ var feedname = "ledfeeder";
  * how many times to blink the led and how long the led shall be turned on
  */
 function blinkled(ledToBlink, howManyTimes=5, interval=500) {
-  debug('blinkled called, payload is %s howManyTimes is %s and interval is %s', ledToBlink, howManyTimes, interval);
+  debug('blinkled called');
   ledToBlink.open(Gpio.OUTPUT, Gpio.HIGH)
   setTimeout(turnOffLed(ledToBlink), interval);
 }
