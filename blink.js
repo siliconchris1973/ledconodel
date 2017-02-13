@@ -52,42 +52,22 @@ var feedname = "ledfeeder";
  */
 function blinkled(ledToBlink, howManyTimes=5, interval=500) {
   debug('blinkled called, payload is %s howManyTimes is %s and interval is %s', ledToBlink, howManyTimes, interval);
-	if (ledToBlink == "red") {
-    for (var i=0; i<howManyTimes; i++) {
-      debug('red on');
-      redled.open(Gpio.OUTPUT, Gpio.HIGH);
-      redled.sleep(interval);
-      debug('red off');
-		  redled.open(Gpio.OUTPUT, Gpio.LOW);
-    }
-	} else if (ledToBlink == "green") {
-    for (var i=0; i<howManyTimes; i++) {
-      debug('green on');
-      greenled.open(Gpio.OUTPUT, Gpio.HIGH);
-      greenled.sleep(interval);
-      debug('green off');
-		  greenled.open(Gpio.OUTPUT, Gpio.LOW);
-    }
-	} else if (ledToBlink == "blue") {
-    for (var i=0; i<howManyTimes; i++) {
-      debug('blue on');
-      blueled.open(Gpio.OUTPUT, Gpio.HIGH);
-      blueled.sleep(interval);
-      debug('blue off');
-		  blueled.open(Gpio.OUTPUT, Gpio.LOW);
-    }
-	} else {
-		debug('unrecognized payload %s', ledToBlink);
-	}
+
+  var gs = Gpio.createWriteStream(ledToBlink, {
+    mode: Gpio.OUTPUT,
+    state: Gpio.HIGH
+  });
+  sleep(interval)
+  ledToBlink.open(Gpio.OUTPUT, Gpio.LOW);
 }
 
 /*
  * the main watcher function - need to do this asynchronously
  */
 function watchfeed(){
-  blinkled("red",5,10000);
-  blinkled("green",5,10000);
-  blinkled("blue",5,10000);
+  blinkled(redled,5,10000);
+  blinkled(greenled,5,10000);
+  blinkled(blueled,5,10000);
 }
 
 watchfeed();
