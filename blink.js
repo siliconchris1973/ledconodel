@@ -1,3 +1,5 @@
+var exports = module.exports = {};
+
 /*
  * shall we output debug logs?
  * if so start the app with:
@@ -47,7 +49,7 @@ var feedname = "ledfeeder";
 /*
  * the main watcher function - need to do this asynchronously
  */
-void function watchfeed(data) {
+void watchfeed = function(data) {
 	if (data == "red") {
     debug('red on');
     redled.open(Gpio.OUTPUT, Gpio.HIGH);
