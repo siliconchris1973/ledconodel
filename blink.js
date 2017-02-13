@@ -42,18 +42,6 @@ greenled.open(Gpio.OUTPUT, Gpio.LOW);
 redled.open(Gpio.OUTPUT, Gpio.LOW);
 blueled.open(Gpio.OUTPUT, Gpio.LOW);
 
-
-/*
- * last state of the leds
- * in case we blink, this will stop the blinking
- * in case the leds are on, this will turn off the leds
- * in case leds are off and command is blink then blink they will
- * in case leds are off and command is trigger then on they will go
- */
-var greenon = false;
-var redon = false;
-var blueon = false;
-
 /*
  * the name of the Adafruit.io feed we want to watch
  */
@@ -64,7 +52,7 @@ var feedname = "ledfeeder";
  * about that.  Use a setInterval()/setTimeout() loop instead if it matters.
  */
  void function blinkled(led, interval) {
-   Promise.resolve(led.toggle())
+  Promise.resolve(led.toggle())
     .then(led.sleep.bind(null, interval, true))
     .then(loop)
 }();
@@ -74,29 +62,18 @@ var feedname = "ledfeeder";
  */
 void function watchfeed(data) {
 	if (data == "red") {
-		if (redon) {
-			//rpio.open(redled, rpio.OUTPUT, rpio.LOW);
-      redled.open(Gpio.OUTPUT, Gpio.LOW);
-		} else {
-			blinkLed(redled,500);
-		}
-		redon != redon;
+    redled.open(Gpio.OUTPUT, Gpio.HIGH);
+    redled.sleep(500)
+		redled.open(Gpio.OUTPUT, Gpio.LOW);
+
 	} else if (data == "green") {
-		if (greenon) {
-			//rpio.open(greenled, rpio.OUTPUT, rpio.LOW);
-      greenled.open(Gpio.OUTPUT, Gpio.LOW);
-		} else {
-			blinkLed(greenled,500);
-		}
-		greenon != greenon;
+    greenled.open(Gpio.OUTPUT, Gpio.HIGH);
+    greenled.sleep(500)
+		greenled.open(Gpio.OUTPUT, Gpio.LOW);
 	} else if (data == "blue") {
-		if (blueon) {
-			//rpio.open(blueled, rpio.OUTPUT, rpio.LOW);
-      blueled.open(Gpio.OUTPUT, Gpio.LOW);
-		} else {
-			blinkLed(blueled,500);
-		}
-		blueon != blueon;
+    blueled.open(Gpio.OUTPUT, Gpio.HIGH);
+    blueled.sleep(500)
+		blueled.open(Gpio.OUTPUT, Gpio.LOW);
 	} else {
 		debug('unrecognized payload %s', data);
 	}
