@@ -12,7 +12,8 @@ debug('booting %s', name);
 /*
  * we need some timers to have the leds blink
  */
-require('waitfor');
+ var sleep = require('system-sleep');
+
 
 /*
  * require rpio2 node module to drive GPIO pins and use hardware pin numbering
@@ -69,7 +70,7 @@ function blinkled(ledToBlink, howManyTimes=5, interval=500) {
   debug('blinkled called, payload is %s howManyTimes is %s and interval is %s', ledToBlink, howManyTimes, interval);
   for (var i=0; i<howManyTimes; i++) {
     ledToBlink.open(Gpio.OUTPUT, Gpio.HIGH)
-    wait.miliseconds(10*interval);
+    sleep(1*interval); // sleep for 10 seconds
     ledToBlink.open(Gpio.OUTPUT, Gpio.LOW)
   }
 }
@@ -79,9 +80,9 @@ function blinkled(ledToBlink, howManyTimes=5, interval=500) {
  * the main watcher function - need to do this asynchronously
  */
 function watchfeed(){
-  blinkled(redled,5,10000);
-  blinkled(greenled,5,10000);
-  blinkled(blueled,5,10000);
+  blinkled(redled,5,1000);
+  blinkled(greenled,5,1000);
+  blinkled(blueled,5,1000);
 }
 
 watchfeed();

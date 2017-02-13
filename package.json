@@ -20,7 +20,8 @@
   "license": "ISC",
   "dependencies": {
     "rpio2": "^0.4.1",
-    "debug": "^2.6.1"
+    "debug": "^2.6.1",
+    "system-sleep"
   },
   "bugs": {
     "url": "https://github.com/siliconchris1973/ledconodel/issues"
