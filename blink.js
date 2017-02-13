@@ -49,7 +49,7 @@ var feedname = "ledfeeder";
 /*
  * the main watcher function - need to do this asynchronously
  */
-void watchfeed = function(data) {
+function watchfeed(data:string) {
 	if (data == "red") {
     debug('red on');
     redled.open(Gpio.OUTPUT, Gpio.HIGH);
@@ -74,11 +74,11 @@ void watchfeed = function(data) {
 } ();
 
 
-watchfeed("red");
-watchfeed("green");
-watchfeed("blue");
+this.watchfeed("red");
+this.watchfeed("green");
+this.watchfeed("blue");
 debug('purple led is wrong');
-watchfeed("purple");
+this.watchfeed("purple");
 
 debug('cloding GPIO');
 redled.close();
