@@ -9,6 +9,15 @@ var options = {
 }
 
 /*
+ * shall we output debug logs?
+ * if so start the app with:
+ *    DEBUG=ledconodel node app.js
+ */
+const debug = require('debug')('ledconodel'); 
+const name = 'ledconodel';  
+debug('booting %s', name);
+
+/*
  * include the adafruit.io client library to watch the feed
  */
 //require xxx as adaio
@@ -83,14 +92,16 @@ function watchfeed(data) {
 		}
 		blueon != blueon;
 	} else {
-		print('unrecognized payload');
+		debug('unrecognized payload %s', data);
 	}
 
 }
 
+debug('red blinking');
 watchfeed("red");
+debug('green blinking');
 watchfeed("green");
+debug('blue blinking');
 watchfeed("blue");
-watchfeed("red");
-watchfeed("green");
-watchfeed("blue");
+debug('purple blinking');
+watchfeed("purple");
