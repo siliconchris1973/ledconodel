@@ -26,12 +26,22 @@ const redled = new Gpio(13);
 const blueled = new Gpio(26);
 
 /*
+ * function to turn off an led
+ */
+function turnOffLed(led) {
+  led.open(Gpio.OUTPUT, Gpio.LOW)
+}
+
+/*
  * Set the initial state to low.  The state is set prior to the pin becoming
  * active, so is safe for devices which require a stable setup.
  */
-greenled.open(Gpio.OUTPUT, Gpio.LOW);
-redled.open(Gpio.OUTPUT, Gpio.LOW);
-blueled.open(Gpio.OUTPUT, Gpio.LOW);
+turnOffLed(greenled);
+turnOffLed(blueled);
+turnOffLed(redled);
+//greenled.open(Gpio.OUTPUT, Gpio.LOW);
+//redled.open(Gpio.OUTPUT, Gpio.LOW);
+//blueled.open(Gpio.OUTPUT, Gpio.LOW);
 
 
 /*
@@ -57,8 +67,9 @@ function blinkled(ledToBlink, howManyTimes=5, interval=500) {
     mode: Gpio.OUTPUT,
     state: Gpio.HIGH
   });
-  setTimeout(ledToBlink.open(Gpio.OUTPUT, Gpio.LOW), interval);
+  setTimeout(tunrOffLed, interval);
 }
+
 
 /*
  * the main watcher function - need to do this asynchronously
