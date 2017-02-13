@@ -12,10 +12,15 @@
   },
   "keywords": [
     "Adafruit.IO",
-    "Node.JS"
+    "Node.JS",
+    "Raspberry PI",
+    "IoT"
   ],
   "author": "c.guenther@mac.com",
   "license": "ISC",
+  "dependencies": {
+    "rpio2": "^0.4.1"
+  },
   "bugs": {
     "url": "https://github.com/siliconchris1973/ledconodel/issues"
   },

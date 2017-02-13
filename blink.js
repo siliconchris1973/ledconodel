@@ -1,21 +1,21 @@
 /*
- *
- */
-var rpio = require('rpio');
-
-var options = {
-        gpiomem: true,          /* Use /dev/gpiomem */
-        mapping: 'physical',    /* Use the P1-P40 numbering scheme */
-}
-
-/*
  * shall we output debug logs?
  * if so start the app with:
  *    DEBUG=ledconodel node app.js
  */
-const debug = require('debug')('ledconodel'); 
-const name = 'ledconodel';  
+const debug = require('debug')('ledconodel');
+const name = 'ledconodel';
 debug('booting %s', name);
+
+/*
+ *
+ */
+var rpio = require('rpio2');
+
+var options = {
+  gpiomem: true,          /* Use /dev/gpiomem */
+  mapping: 'physical',    /* Use the P1-P40 numbering scheme */
+}
 
 /*
  * include the adafruit.io client library to watch the feed
@@ -23,11 +23,11 @@ debug('booting %s', name);
 //require xxx as adaio
 
 /*
- * the hardware pins for the leds
+ * set the hardware pins for the 3 leds as a new instance of rpio
  */
-var greenled = 19;
-var redled = 13;
-var blueled = 26;
+const greenled = new rpio(19);
+const redled = new rpio(13);
+const blueled = new rpio(26);
 
 /*
  * last state of the leds
@@ -48,54 +48,58 @@ var feedname = "ledfeeder";
 /*
  * Set the initial state to low.  The state is set prior to the pin becoming
  * active, so is safe for devices which require a stable setup.
- */
+
 rpio.open(greenled, rpio.OUTPUT, rpio.LOW);
 rpio.open(redled, rpio.OUTPUT, rpio.LOW);
 rpio.open(blueled, rpio.OUTPUT, rpio.LOW);
+ */
+greenled.open(rpio.OUTPUT, rpio.LOW);
+redled.open(rpio.OUTPUT, rpio.LOW);
+blueled.open(rpio.OUTPUT, rpio.LOW);
+
 
 /*
  * The sleep functions block, but rarely in these simple programs does one care
  * about that.  Use a setInterval()/setTimeout() loop instead if it matters.
  */
-function blinkLed(blinkpin, blinkcount) {
-	for (var i = 0; i < blinkcount-1; i++) {
-    /* On for 1 second */
-    rpio.write(blinkpin, rpio.HIGH);
-    rpio.sleep(1);
+ void function blinkled(led, interval) {
+   Promise.resolve(led.toggle())
+    .then(led.sleep.bind(null, interval, true))
+    .then(loop)
+}();
 
-	  /* Off for half a second (500ms) */
-	  rpio.write(blinkpin, rpio.LOW);
-	  rpio.msleep(500);
-	}
-}
-
-function watchfeed(data) {
+/*
+ * the main watcher function - need to do this asynchronously
+ */
+void function watchfeed(data) {
 	if (data == "red") {
 		if (redon) {
-			rpio.open(redled, rpio.OUTPUT, rpio.LOW);
+			//rpio.open(redled, rpio.OUTPUT, rpio.LOW);
+      redled.open(rpio.OUTPUT, rpio.LOW);
 		} else {
-			blinkLed(redled,5);
+			blinkLed(redled,500);
 		}
 		redon != redon;
 	} else if (data == "green") {
 		if (greenon) {
-			rpio.open(greenled, rpio.OUTPUT, rpio.LOW);
+			//rpio.open(greenled, rpio.OUTPUT, rpio.LOW);
+      greenled.open(rpio.OUTPUT, rpio.LOW);
 		} else {
-			blinkLed(greenled,5);
+			blinkLed(greenled,500);
 		}
 		greenon != greenon;
 	} else if (data == "blue") {
 		if (blueon) {
-			rpio.open(blueled, rpio.OUTPUT, rpio.LOW);
+			//rpio.open(blueled, rpio.OUTPUT, rpio.LOW);
+      blueled.open(rpio.OUTPUT, rpio.LOW);
 		} else {
-			blinkLed(blueled,5);
+			blinkLed(blueled,500);
 		}
 		blueon != blueon;
 	} else {
 		debug('unrecognized payload %s', data);
 	}
-
-}
+} ();
 
 debug('red blinking');
 watchfeed("red");
