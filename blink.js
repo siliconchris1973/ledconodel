@@ -52,7 +52,7 @@ var feedname = "ledfeeder";
 function watchfeed(data, howmanytimes) {
   debug('watchfeed called, payload is %s and number is %i', data, howmanytimes);
 	if (data == "red") {
-    for (int 1=0; i<howmanytimes-1; i++) {
+    for (int i=0; i<howmanytimes-1; i++) {
       debug('red on');
       redled.open(Gpio.OUTPUT, Gpio.HIGH);
       redled.sleep(500);
@@ -60,7 +60,7 @@ function watchfeed(data, howmanytimes) {
 		  redled.open(Gpio.OUTPUT, Gpio.LOW);
     }
 	} else if (data == "green") {
-    for (int 1=0; i<howmanytimes-1; i++) {
+    for (int i=0; i<howmanytimes-1; i++) {
       debug('green on');
       greenled.open(Gpio.OUTPUT, Gpio.HIGH);
       greenled.sleep(500);
@@ -68,7 +68,7 @@ function watchfeed(data, howmanytimes) {
 		  greenled.open(Gpio.OUTPUT, Gpio.LOW);
     }
 	} else if (data == "blue") {
-    for (int 1=0; i<howmanytimes-1; i++) {
+    for (int i=0; i<howmanytimes-1; i++) {
       debug('blue on');
       blueled.open(Gpio.OUTPUT, Gpio.HIGH);
       blueled.sleep(500);
