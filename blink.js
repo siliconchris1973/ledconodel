@@ -1,5 +1,5 @@
 /*
- * 
+ *
  */
 var rpio = require('rpio');
 
@@ -60,7 +60,7 @@ function blinkLed(blinkpin, blinkcount) {
 	}
 }
 
-function watchfeed() {
+function watchfeed(data) {
 	if (data == "red") {
 		if (redon) {
 			rpio.open(redled, rpio.OUTPUT, rpio.LOW);
@@ -87,3 +87,10 @@ function watchfeed() {
 	}
 
 }
+
+watchfeed("red");
+watchfeed("green");
+watchfeed("blue");
+watchfeed("red");
+watchfeed("green");
+watchfeed("blue");
