@@ -48,7 +48,7 @@ rpio.open(blueled, rpio.OUTPUT, rpio.LOW);
  * The sleep functions block, but rarely in these simple programs does one care
  * about that.  Use a setInterval()/setTimeout() loop instead if it matters.
  */
-function blinkLed(blinkpin; blinkcount) {
+function blinkLed(blinkpin, blinkcount) {
 	for (var i = 0; i < blinkcount-1; i++) {
     /* On for 1 second */
     rpio.write(blinkpin, rpio.HIGH);
