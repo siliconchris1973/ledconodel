@@ -47,28 +47,29 @@ var feedname = "ledfeeder";
 
 
 /*
- * the main watcher function - need to do this asynchronously
+ * the blinker function will get calls with the GPIO object of the pin,
+ * how many times to blink the led and how long the led shall be turned on
  */
-function watchfeed(data, howmanytimes, interval) {
-  debug('watchfeed called, payload is %s howmanytimes is %s and interval is %s', data, howmanytimes, interval);
-	if (data == "red") {
-    for (var i=0; i<howmanytimes; i++) {
+function blinkled(ledToBlink, howManyTimes=5, interval=500) {
+  debug('blinkled called, payload is %s howManyTimes is %s and interval is %s', ledToBlink, howManyTimes, interval);
+	if (ledToBlink == "red") {
+    for (var i=0; i<howManyTimes; i++) {
       debug('red on');
       redled.open(Gpio.OUTPUT, Gpio.HIGH);
       redled.sleep(interval);
       debug('red off');
 		  redled.open(Gpio.OUTPUT, Gpio.LOW);
     }
-	} else if (data == "green") {
-    for (var i=0; i<howmanytimes; i++) {
+	} else if (ledToBlink == "green") {
+    for (var i=0; i<howManyTimes; i++) {
       debug('green on');
       greenled.open(Gpio.OUTPUT, Gpio.HIGH);
       greenled.sleep(interval);
       debug('green off');
 		  greenled.open(Gpio.OUTPUT, Gpio.LOW);
     }
-	} else if (data == "blue") {
-    for (var i=0; i<howmanytimes; i++) {
+	} else if (ledToBlink == "blue") {
+    for (var i=0; i<howManyTimes; i++) {
       debug('blue on');
       blueled.open(Gpio.OUTPUT, Gpio.HIGH);
       blueled.sleep(interval);
@@ -76,17 +77,20 @@ function watchfeed(data, howmanytimes, interval) {
 		  blueled.open(Gpio.OUTPUT, Gpio.LOW);
     }
 	} else {
-		debug('unrecognized payload %s', data);
+		debug('unrecognized payload %s', ledToBlink);
 	}
 }
 
+/*
+ * the main watcher function - need to do this asynchronously
+ */
+function watchfeed(){
+  blinkled("red",5,1000);
+  blinkled("green",5,1000);
+  blinkled("blue",5,1000);
+}
 
-watchfeed("red",5,1000);
-watchfeed("green",5,5000);
-watchfeed("blue",5,2000);
-debug('purple led is wrong');
-watchfeed("purple",5,100);
-
+watchfeed();
 debug('closing GPIO');
 redled.close();
 greenled.close();
