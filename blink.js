@@ -46,39 +46,46 @@ var feedname = "ledfeeder";
 
 /*
  * the main watcher function - need to do this asynchronously
-
+ */
 void function watchfeed(data) {
 	if (data == "red") {
+    debug('red on');
     redled.open(Gpio.OUTPUT, Gpio.HIGH);
     redled.sleep(500)
+    debug('red off');
 		redled.open(Gpio.OUTPUT, Gpio.LOW);
 	} else if (data == "green") {
+    debug('green on');
     greenled.open(Gpio.OUTPUT, Gpio.HIGH);
     greenled.sleep(500)
+    debug('green off');
 		greenled.open(Gpio.OUTPUT, Gpio.LOW);
 	} else if (data == "blue") {
+    debug('blue on');
     blueled.open(Gpio.OUTPUT, Gpio.HIGH);
     blueled.sleep(500)
+    debug('blue off');
 		blueled.open(Gpio.OUTPUT, Gpio.LOW);
 	} else {
 		debug('unrecognized payload %s', data);
 	}
 } ();
 
-debug('red blinking');
+
 watchfeed("red");
-debug('green blinking');
 watchfeed("green");
-debug('blue blinking');
 watchfeed("blue");
-debug('purple blinking');
+debug('purple led is wrong');
 watchfeed("purple");
-*/
 
-redled.open(Gpio.OUTPUT, Gpio.HIGH);
-redled.sleep(500)
-redled.open(Gpio.OUTPUT, Gpio.LOW);
+debug('cloding GPIO');
+redled.close();
+greenled.close();
+blueled.close();
+debug('shutdown!');
+process.exit(0);
 
+/*
 process.on("SIGINT", function(){
   redled.close();
   greenled.close();
@@ -86,3 +93,4 @@ process.on("SIGINT", function(){
   debug('shutdown!');
   process.exit(0);
 });
+*/
