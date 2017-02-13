@@ -49,36 +49,43 @@ var feedname = "ledfeeder";
 /*
  * the main watcher function - need to do this asynchronously
  */
-function watchfeed(data:string) {
+function watchfeed(data, howmanytimes) {
+  debug('watchfeed called, payload is %s and number is %i', data, howmanytimes);
 	if (data == "red") {
-    debug('red on');
-    redled.open(Gpio.OUTPUT, Gpio.HIGH);
-    redled.sleep(500)
-    debug('red off');
-		redled.open(Gpio.OUTPUT, Gpio.LOW);
+    for (int 1=0; i<howmanytimes-1; i++) {
+      debug('red on');
+      redled.open(Gpio.OUTPUT, Gpio.HIGH);
+      redled.sleep(500);
+      debug('red off');
+		  redled.open(Gpio.OUTPUT, Gpio.LOW);
+    }
 	} else if (data == "green") {
-    debug('green on');
-    greenled.open(Gpio.OUTPUT, Gpio.HIGH);
-    greenled.sleep(500)
-    debug('green off');
-		greenled.open(Gpio.OUTPUT, Gpio.LOW);
+    for (int 1=0; i<howmanytimes-1; i++) {
+      debug('green on');
+      greenled.open(Gpio.OUTPUT, Gpio.HIGH);
+      greenled.sleep(500);
+      debug('green off');
+		  greenled.open(Gpio.OUTPUT, Gpio.LOW);
+    }
 	} else if (data == "blue") {
-    debug('blue on');
-    blueled.open(Gpio.OUTPUT, Gpio.HIGH);
-    blueled.sleep(500)
-    debug('blue off');
-		blueled.open(Gpio.OUTPUT, Gpio.LOW);
+    for (int 1=0; i<howmanytimes-1; i++) {
+      debug('blue on');
+      blueled.open(Gpio.OUTPUT, Gpio.HIGH);
+      blueled.sleep(500);
+      debug('blue off');
+		  blueled.open(Gpio.OUTPUT, Gpio.LOW);
+    }
 	} else {
 		debug('unrecognized payload %s', data);
 	}
-} ();
+}
 
 
-this.watchfeed("red");
-this.watchfeed("green");
-this.watchfeed("blue");
+watchfeed("red",5);
+watchfeed("green",5);
+watchfeed("blue",5);
 debug('purple led is wrong');
-this.watchfeed("purple");
+watchfeed("purple",5);
 
 debug('cloding GPIO');
 redled.close();
