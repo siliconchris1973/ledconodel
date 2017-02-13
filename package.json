@@ -19,7 +19,8 @@
   "author": "c.guenther@mac.com",
   "license": "ISC",
   "dependencies": {
-    "rpio2": "^0.4.1"
+    "rpio2": "^0.4.1",
+    "debug": "^2.6.1"
   },
   "bugs": {
     "url": "https://github.com/siliconchris1973/ledconodel/issues"
