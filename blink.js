@@ -68,20 +68,22 @@ function watchfeed() {
 			blinkLed(redled,5);
 		}
 		redon != redon;
-	} elseif (data == "green") {
+	} else if (data == "green") {
 		if (greenon) {
 			rpio.open(greenled, rpio.OUTPUT, rpio.LOW);
 		} else {
 			blinkLed(greenled,5);
 		}
 		greenon != greenon;
-	} elseif (data == "blue") {
+	} else if (data == "blue") {
 		if (blueon) {
 			rpio.open(blueled, rpio.OUTPUT, rpio.LOW);
 		} else {
 			blinkLed(blueled,5);
 		}
 		blueon != blueon;
+	} else {
+		print('unrecognized payload');
 	}
 
 }
