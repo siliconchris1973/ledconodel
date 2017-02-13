@@ -85,9 +85,9 @@ function blinkled(ledToBlink, howManyTimes=5, interval=500) {
  * the main watcher function - need to do this asynchronously
  */
 function watchfeed(){
-  blinkled("red",5,1000);
-  blinkled("green",5,1000);
-  blinkled("blue",5,1000);
+  blinkled("red",5,10000);
+  blinkled("green",5,10000);
+  blinkled("blue",5,10000);
 }
 
 watchfeed();
