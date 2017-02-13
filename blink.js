@@ -48,16 +48,6 @@ blueled.open(Gpio.OUTPUT, Gpio.LOW);
 var feedname = "ledfeeder";
 
 /*
- * The sleep functions block, but rarely in these simple programs does one care
- * about that.  Use a setInterval()/setTimeout() loop instead if it matters.
- */
- void function blinkled(led, interval) {
-  Promise.resolve(led.toggle())
-    .then(led.sleep.bind(null, interval, true))
-    .then(loop)
-}();
-
-/*
  * the main watcher function - need to do this asynchronously
  */
 void function watchfeed(data) {
