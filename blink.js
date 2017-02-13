@@ -10,6 +10,11 @@ const name = 'ledconodel';
 debug('booting %s', name);
 
 /*
+ * we need some timers to have the leds blink
+ */
+require('waitfor');
+
+/*
  * require rpio2 node module to drive GPIO pins and use hardware pin numbering
  */
 const Gpio = require('rpio2').Gpio;
@@ -62,8 +67,11 @@ var feedname = "ledfeeder";
  */
 function blinkled(ledToBlink, howManyTimes=5, interval=500) {
   debug('blinkled called, payload is %s howManyTimes is %s and interval is %s', ledToBlink, howManyTimes, interval);
-  ledToBlink.open(Gpio.OUTPUT, Gpio.HIGH)
-  //setTimeout(turnOffLed(ledToBlink), interval);
+  for (var i=0; i<howManyTimes; i++) {
+    ledToBlink.open(Gpio.OUTPUT, Gpio.HIGH)
+    wait.miliseconds(10*interval);
+    ledToBlink.open(Gpio.OUTPUT, Gpio.LOW)
+  }
 }
 
 
@@ -72,8 +80,8 @@ function blinkled(ledToBlink, howManyTimes=5, interval=500) {
  */
 function watchfeed(){
   blinkled(redled,5,10000);
-  setTimeout(blinkled(greenled,5,10000),10000);
-  setTimeout(blinkled(blueled,5,10000),10000);
+  blinkled(greenled,5,10000);
+  blinkled(blueled,5,10000);
 }
 
 watchfeed();
