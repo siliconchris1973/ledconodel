@@ -67,7 +67,7 @@ function blinkled(ledToBlink, howManyTimes=5, interval=500) {
     mode: Gpio.OUTPUT,
     state: Gpio.HIGH
   });
-  setTimeout(tunrOffLed, interval);
+  setTimeout(turnOffLed(ledToBlink), interval);
 }
 
 
