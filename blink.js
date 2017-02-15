@@ -35,6 +35,10 @@ const redled = new Gpio(33);
 const greenled = new Gpio(35);
 const blueled = new Gpio(37);
 
+var isRedLedOn = 0;
+var isGreenLedOn = 0;
+var isBlueLedOn = 0;
+
 /*
  * function to turn off an led
  */
@@ -54,42 +58,14 @@ turnOffLed(blueled);
 //blueled.open(Gpio.OUTPUT, Gpio.LOW);
 
 
-/*
- * include the adafruit.io client library to watch the feed
- */
-//require xxx as adaio
-
-/*
- * the name of the Adafruit.io feed we want to watch
- */
-var feedname = "ledfeeder";
+setInterval(function(configPin, isLedOn) {
+  isLedOn = +!isLedOn;
+	//isLedOn = !isLedOn;
+	wpi.digitalWrite(configPin, isLedOn );
+}, configTimeout);
 
 
-
-/*
- * the blinker function will get calls with the GPIO object of the pin,
- * how many times to blink the led and how long the led shall be turned on
- */
-function blinkled(ledToBlink, howManyTimes=5, interval=500) {
-  debug('blinkled called, payload is %s howManyTimes is %s and interval is %s', ledToBlink, howManyTimes, interval);
-  for (var i=0; i<howManyTimes; i++) {
-    ledToBlink.open(Gpio.OUTPUT, Gpio.HIGH)
-    sleep(1*interval); // sleep for 10 seconds
-    ledToBlink.open(Gpio.OUTPUT, Gpio.LOW)
-  }
-}
-
-
-/*
- * the main watcher function - need to do this asynchronously
- */
-function watchfeed(){
-  blinkled(redled,5,1000);
-  blinkled(greenled,5,1000);
-  blinkled(blueled,5,1000);
-}
-
-watchfeed();
+setInterval(redled,isRedLedOn)
 
 debug('closing GPIO');
 turnOffLed(redled);
@@ -102,7 +78,7 @@ blueled.close();
 debug('shutdown!');
 process.exit(0);
 
-/*
+
 process.on("SIGINT", function(){
   redled.close();
   greenled.close();
@@ -110,4 +86,3 @@ process.on("SIGINT", function(){
   debug('shutdown!');
   process.exit(0);
 });
-*/
