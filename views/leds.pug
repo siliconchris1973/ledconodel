@@ -3,3 +3,18 @@ extends layout
 block content
   h1= title
   p Welcome to the #{title}
+
+  div
+    table
+      thead
+        tr: th LED
+      tbody
+          tr
+            td
+              a(href='/javascript/redled.js')
+          tr
+            td
+              a(href='/javascript/greenled.js')
+          tr
+            td
+              a(href='/javascript/blueled.js')
