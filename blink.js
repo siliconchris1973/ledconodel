@@ -25,11 +25,15 @@ var options = {
 }
 
 /*
- * set the hardware pins for the 3 leds as a new instance of Gpio
- */
-const redled = new Gpio(13);
-const greenled = new Gpio(19);
-const blueled = new Gpio(26);
+ * set the pins for the 3 leds as a new instance of Gpio
+							HW --> BCM --> WiringPI
+		redled		33 --> 13  --> 23
+		greenled	35 --> 19  --> 24
+		blueled		37 --> 26  --> 25
+*/
+const redled = new Gpio(33);
+const greenled = new Gpio(35);
+const blueled = new Gpio(37);
 
 /*
  * function to turn off an led

@@ -1,11 +1,16 @@
 var wpi = require('wiring-pi');
 
 /*
- * set the hardware pins for the 3 leds as a new instance of Gpio
- */
-const redled = 13;
-const greenled = 19;
-const blueled = 26;
+ * set the pins for the 3 leds as a new instance of Gpio
+							HW --> BCM --> WiringPI
+		redled		33 --> 13  --> 23
+		greenled	35 --> 19  --> 24
+		blueled		37 --> 26  --> 25
+*/
+const redled = 23;
+const greenled = 24;
+const blueled = 25;
+
 
 // GPIO pin of the led
 var configPin = greenled;
