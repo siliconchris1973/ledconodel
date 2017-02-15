@@ -39,6 +39,9 @@ var isRedLedOn = 0;
 var isGreenLedOn = 0;
 var isBlueLedOn = 0;
 
+// Blinking interval in usec
+var configTimeout = 1000;
+
 /*
  * function to turn off an led
  */
