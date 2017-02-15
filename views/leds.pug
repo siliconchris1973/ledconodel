@@ -25,29 +25,26 @@ block content
               default
                 img.className#IdName(src="/images/red_led_0.png" alt="Red LED Off")
           td
-            button(type='button' class='btn btn-' + btnType + ' btn-' + btnSize) = '\n'
-            button(type='button' class=`btn btn-${btnType} btn-${btnSize}`)
+            button(type='button' class='btn btn-' + btnType + ' btn-' + btnSize)
         tr
           td
             a(href='/javascript/greenled.js') GREEN
           td
             case greenled
               when 1
-                img.className#IdName(src="../public/images/green_led_1.png" alt="Green LED On")
+                img.className#IdName(src="/images/green_led_1.png" alt="Green LED On")
               default
-                img.className#IdName(src="../public/images/green_led_0.png" alt="Green LED Off")
+                img.className#IdName(src="/images/green_led_0.png" alt="Green LED Off")
           td
-            button(type='button' class='btn btn-' + btnType + ' btn-' + btnSize) = '\n'
-            button(type='button' class=`btn btn-${btnType} btn-${btnSize}`)
+            button(type='button' class='btn btn-' + btnType + ' btn-' + btnSize)
         tr
           td
             a(href='/javascript/blueled.js') BLUE
           td
             case blueled
               when 1
-                img.className#IdName(src="../public/images/blue_led_1.png" alt="Blue LED On")
+                img.className#IdName(src="/images/blue_led_1.png" alt="Blue LED On")
               default
-                img.className#IdName(src="../public/images/blue_led_0.png" alt="Blue LED Off")
+                img.className#IdName(src="/images/blue_led_0.png" alt="Blue LED Off")
           td
-            button(type='button' class='btn btn-' + btnType + ' btn-' + btnSize) = '\n'
-            button(type='button' class=`btn btn-${btnType} btn-${btnSize}`)
+            button(type='button' class='btn btn-' + btnType + ' btn-' + btnSize)
