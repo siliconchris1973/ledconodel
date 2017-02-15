@@ -19,7 +19,7 @@
   "author": "c.guenther@mac.com",
   "license": "ISC",
   "dependencies": {
-    "rpio2": "^0.4.1",
+    "wiring-pi",
     "debug": "^2.6.1",
     "system-sleep": "^1.2.0"
   },
