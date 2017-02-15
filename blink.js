@@ -12,7 +12,7 @@ debug('booting %s', name);
 /*
  * we need some timers to have the leds blink
  */
-var sleep = require('system-sleep');
+//var sleep = require('system-sleep');
 
 
 /*
