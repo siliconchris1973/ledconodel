@@ -5,19 +5,19 @@ block content
   p Welcome to the #{title}
 
   div
-    - var redled = 1
-    - var greenled = 0
+    - var redled = 0
+    - var greenled = 1
     - var blueled = 1
     - var btnType = 'info'
     - var btnSize = 'lg'
 
     table
       thead
-        tr: th LED  LED Status  Toggle
+        tr: th LED th Status th Toggle
       tbody
         tr
           td
-            a(href='/javascript/redled.js') RED
+            a(href='/javascript/redled.js') Red
           td
             case redled
               when 1
@@ -28,7 +28,7 @@ block content
             button(type='button' class='btn btn-' + btnType + ' btn-' + btnSize)
         tr
           td
-            a(href='/javascript/greenled.js') GREEN
+            a(href='/javascript/greenled.js') Green
           td
             case greenled
               when 1
@@ -39,7 +39,7 @@ block content
             button(type='button' class='btn btn-' + btnType + ' btn-' + btnSize)
         tr
           td
-            a(href='/javascript/blueled.js') BLUE
+            a(href='/javascript/blueled.js') Blue
           td
             case blueled
               when 1
