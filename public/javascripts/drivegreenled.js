@@ -9,7 +9,7 @@ const name = 'ledconodel::greenled';
 debug('initiating %s', name);
 
 var fs = require('fs');
-var configData = fs.readFileSync('./../../data/config.json'), myConfigObj;
+var configData = fs.readFileSync('/../../data/config.json'), myConfigObj;
 
 try {
 	myConfigObj = JSON.parse(configData);
@@ -42,9 +42,9 @@ wpi.pinMode(redled, wpi.OUTPUT);
 wpi.pinMode(greenled, wpi.OUTPUT);
 wpi.pinMode(blueled, wpi.OUTPUT);
 
-var isRedLedOn = fs.readFileSync('../data/red_status');
-var isGreenLedOn = fs.readFileSync('../data/green_status');
-var isBlueLedOn = fs.readFileSync('../data/blue_status');
+var isRedLedOn = fs.readFileSync('/../../data/red_status');
+var isGreenLedOn = fs.readFileSync('/../../data/green_status');
+var isBlueLedOn = fs.readFileSync('/../../data/blue_status');
 var isLedOn = isGreenLedOn;
 var configPin = greenled;
 
