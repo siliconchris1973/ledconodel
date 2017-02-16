@@ -1,11 +1,9 @@
-/*
- * set the pins for the 3 leds as a new instance of Gpio
-							HW --> BCM --> WiringPI
-		redled		33 --> 13  --> 23
-		greenled	35 --> 19  --> 24
-		blueled		37 --> 26  --> 25
-*/
 {
+  "_comment" : "set the pins for the 3 leds as a new instance of Gpio
+  							          HW --> BCM --> WiringPI
+  		          redled		33 --> 13  --> 23
+  		          greenled	35 --> 19  --> 24
+  		          blueled		37 --> 26  --> 25",
   "redled" : 23,
   "greenled" : 24,
   "blueled" : 25,
