@@ -9,17 +9,17 @@ router.get('/', function(req, res, next) {
 
 
 // base path is already set as being /leds/{color}
-router.post('/on', function(req, res) {
+router.get('/on', function(req, res, next) {
   led.turnledon();
 });
 
 // base path is already set as being /leds/{color}
-router.post('/off', function(req, res) {
+router.get('/off', function(req, res, next) {
   led.turnledoff();
 });
 
 // base path is already set as being /leds/{color}
-router.post('/blink', function(req, res) {
+router.get('/blink', function(req, res, next) {
   led.blinkled();
 });
 
