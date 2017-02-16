@@ -1,11 +1,24 @@
 {
-  "_comment" : "set the pins for the 3 leds as a new instance of Gpio
-  							          HW --> BCM --> WiringPI
-  		          redled		33 --> 13  --> 23
-  		          greenled	35 --> 19  --> 24
-  		          blueled		37 --> 26  --> 25",
-  "redled" : 23,
-  "greenled" : 24,
-  "blueled" : 25,
-  "configtimeout" : 1000
+  "_comment" : {
+    "_info": "Pin settings according to the different possibilities of wiring-pi",
+  	"_redledsetting" : {
+      "HW" : "33",
+      "BCM" : "13",
+      "Wiring-PI" : "23"
+    },
+    "_greenledsetting" : {
+      "HW" : "35",
+      "BCM" : "19",
+      "Wiring-PI" : "24"
+    },
+    "_blueledsetting" : {
+      "HW" : "37",
+      "BCM" : "26",
+      "Wiring-PI" : "25"
+    }
+  },
+  "redled" : "23",
+  "greenled" : "24",
+  "blueled" : "25",
+  "configtimeout" : "1000"
 }
