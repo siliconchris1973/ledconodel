@@ -63,16 +63,12 @@ function exitHandler(options, err) {
 /*
  * drive the led
  */
-exports.turnledon = function(){
-	 wpi.digitalWrite(configPin,1)
-}
+exports.turnledon = function(){ wpi.digitalWrite(configPin,1) };
 
 /*
  * drive the led
  */
-exports.turnledoff = function(){
-	 wpi.digitalWrite(configPin,0)
-}
+exports.turnledoff = function(){ wpi.digitalWrite(configPin,0) };
 
 /*
  * blink the given led
