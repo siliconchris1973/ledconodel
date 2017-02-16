@@ -9,7 +9,7 @@ const name = 'ledconodel::blueled';
 debug('initiating %s', name);
 
 var fs = require('fs');
-var configData = fs.readFileSync('/data/config.json'), myConfigObj;
+var configData = fs.readFileSync('./../../data/config.json'), myConfigObj;
 
 try {
 	myConfigObj = JSON.parse(configData);
