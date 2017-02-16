@@ -63,21 +63,21 @@ function exitHandler(options, err) {
 /*
  * drive the led
  */
-exports.turnonled function(){
+exports.turnledon = function(){
 	 wpi.digitalWrite(configPin,1)
 }
 
 /*
  * drive the led
  */
-exports.turnoffled function(){
+exports.turnledoff = function(){
 	 wpi.digitalWrite(configPin,0)
 }
 
 /*
  * blink the given led
  */
-exports.blinkled function(){
+exports.blinkled = function(){
 	setInterval(function() {
 		isLedOn = +!isLedOn;
 		//isLedOn = !isLedOn;
