@@ -8,15 +8,18 @@ router.get('/', function(req, res, next) {
 });
 */
 
-router.post('greenledon', function(req, res) {
+// base path is already set as being /leds/{color}
+router.post('/on', function(req, res) {
   led.turnledon();
 });
 
-router.post('greenledoff', function(req, res) {
+// base path is already set as being /leds/{color}
+router.post('/off', function(req, res) {
   led.turnledoff();
 });
 
-router.post('greenledblink', function(req, res) {
+// base path is already set as being /leds/{color}
+router.post('/blink', function(req, res) {
   led.blinkled();
 });
 

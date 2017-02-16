@@ -29,9 +29,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/leds', leds);
-app.use('/redled', redled);
-app.use('/greenled', greenled);
-app.use('/blueled', blueled);
+app.use('/leds/red', redled);
+app.use('/leds/green', greenled);
+app.use('/leds/blue', blueled);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

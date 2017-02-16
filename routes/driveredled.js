@@ -8,15 +8,15 @@ router.get('/', function(req, res, next) {
 });
 */
 
-router.post('redledon', function(req, res) {
+router.post('/on', function(req, res) {
   led.turnledon();
 });
 
-router.post('redledoff', function(req, res) {
+router.post('/off', function(req, res) {
   led.turnledoff();
 });
 
-router.post('redledblink', function(req, res) {
+router.post('/blink', function(req, res) {
   led.blinkled();
 });
 
