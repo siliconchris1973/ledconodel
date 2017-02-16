@@ -32,7 +32,8 @@ wpi.pinMode(blueled, wpi.OUTPUT);
 var isRedLedOn = 0;
 var isGreenLedOn = 0;
 var isBlueLedOn = 0;
-var isLedOn = isGreenLedOn;
+var isLedOn = isBlueLedOn;
+var configPin = blueled;
 
 /*
  * blink the given led
@@ -66,7 +67,7 @@ function exitHandler(configPin, options, err) {
 /*
  * drive the led
  */
-blink(blueled);
+blink(configPin);
 
 
 //do something when app is closing
