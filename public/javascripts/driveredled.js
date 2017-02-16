@@ -8,8 +8,11 @@ const debug = require('debug')('ledconodel');
 const name = 'ledconodel::redled';
 debug('initiating %s', name);
 
+console.log(__dirname);
+console.log(__dirname+"../../data/");
+
 var fs = require('fs');
-var configData = fs.readFileSync('./../../data/config.json'), myConfigObj;
+var configData = fs.readFileSync('../../data/config.json'), myConfigObj;
 
 try {
 	myConfigObj = JSON.parse(configData);
