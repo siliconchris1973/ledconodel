@@ -50,14 +50,14 @@ function exitHandler(options, err) {
 /*
  * drive the led
  */
-exports.turnonled = function(){
+exports.turnledon = function(){
 	 wpi.digitalWrite(configPin,1)
 }
 
 /*
  * drive the led
  */
-function turnoffled(){
+function turnledoff(){
 	 wpi.digitalWrite(configPin,0)
 }
 
