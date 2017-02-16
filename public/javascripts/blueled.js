@@ -5,8 +5,8 @@ var exports = module.exports = {};
  *    DEBUG=ledconodel node app.js
  */
 const debug = require('debug')('ledconodel');
-const name = 'ledconodel';
-debug('booting %s', name);
+const name = 'ledconodel::blueled';
+debug('initiating %s', name);
 
 var wpi = require('wiring-pi');
 
@@ -35,10 +35,12 @@ var isBlueLedOn = 0;
 
 var isLedOn = isGreenLedOn;
 
-setInterval(function() {
-	isLedOn = +!isLedOn;
-	//isLedOn = !isLedOn;
-	wpi.digitalWrite(configPin, isLedOn );
-}, configTimeout);
+function blink(){
+	setInterval(function() {
+		isLedOn = +!isLedOn;
+		//isLedOn = !isLedOn;
+		wpi.digitalWrite(configPin, isLedOn );
+	}, configTimeout);
+};
 
 debug('end');

@@ -9,6 +9,11 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var leds = require('./routes/leds');
 
+// do I really need this???
+var redled = require('./public/javascripts/redled');
+var greenled = require('./public/javascripts/greenled');
+var blueled = require('./public/javascripts/blueled');
+
 var app = express();
 
 // view engine setup
@@ -26,6 +31,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/leds', leds);
+
+// do I really need this???
+app.use('/public/javascripts/redled', redled);
+app.use('/public/javascripts/greenled', greenled);
+app.use('/public/javascripts/blueled', blueled);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
