@@ -43,4 +43,6 @@ function blink(){
 	}, configTimeout);
 };
 
+blink();
+wpi.digitalWrite(configPin,0);
 debug('end');
