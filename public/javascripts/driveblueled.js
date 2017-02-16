@@ -19,20 +19,23 @@ try {
 	console.log(err);
 }
 
+// we need to cast from string to int for the wiring-pi to get the pin number as int
+var casting = require('casting');
+
 /*
  * set the pins for the 3 leds as a new instance of Gpio
- * we set these from a config json file
+ * we set these from the config.json file above
 							HW --> BCM --> WiringPI
 		redled		33 --> 13  --> 23
 		greenled	35 --> 19  --> 24
 		blueled		37 --> 26  --> 25
 */
-const redled = myConfigObj.redled;
-const greenled = myConfigObj.greenled;
-const blueled = myConfigObj.blueled;
+const redled = casting.cast(int, myConfigObj.redled);
+const greenled = casting.cast(int, myConfigObj.greenled);
+const blueled = casting.cast(int, myConfigObj.blueled);
 
 // Blinking interval in usec
-var configTimeout = myConfigObj.configtimeout;
+var configTimeout = casting.cast(int, myConfigObj.configtimeout);
 
 // now setup the GPIO
 var wpi = require('wiring-pi');
