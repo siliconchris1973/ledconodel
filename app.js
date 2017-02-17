@@ -5,10 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// we need this, so we can refer to it in below required led driver modules
 global.__base = __dirname + '/';
 
 var index = require('./routes/index');
 var leds = require('./routes/leds');
+var ledstatus = require('./routes/ledstatus');
 var redled = require('./routes/driveredled');
 var greenled = require('./routes/drivegreenled');
 var blueled = require('./routes/driveblueled');
@@ -29,9 +31,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/leds', leds);
-app.use('/leds/red', redled);
-app.use('/leds/green', greenled);
-app.use('/leds/blue', blueled);
+app.use('/ledstatus', ledstatus);
+app.use('/leds/red', oneled);
+app.use('/leds/green', oneled);
+app.use('/leds/blue', oneled);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

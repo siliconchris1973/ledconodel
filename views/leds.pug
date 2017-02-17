@@ -6,8 +6,8 @@ block content
 
   div
     - var redled = 0
-    - var greenled = 1
-    - var blueled = 1
+    - var greenled = 0
+    - var blueled = 0
     - var btnType = 'info'
     - var btnSize = 'lg'
 
@@ -23,7 +23,7 @@ block content
       tbody
         tr
           td
-            a(href='/javascript/redled.js') Red
+            a(href='/ledstatus.js&led=red') Red
           td
             case redled
               when 1
@@ -34,7 +34,7 @@ block content
             button(type='button' class='btn btn-' + btnType + ' btn-' + btnSize)
         tr
           td
-            a(href='/javascript/greenled.js') Green
+            a(href='/ledstatus.js&led=green') Green
           td
             case greenled
               when 1
@@ -45,7 +45,7 @@ block content
             button(type='button' class='btn btn-' + btnType + ' btn-' + btnSize)
         tr
           td
-            a(href='/javascript/blueled.js') Blue
+            a(href='/ledstatus.js&led=blue') Blue
           td
             case blueled
               when 1
