@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+global.__base = __dirname + '/';
+
 var index = require('./routes/index');
 var leds = require('./routes/leds');
 var redled = require('./routes/driveredled');
@@ -12,8 +14,6 @@ var greenled = require('./routes/drivegreenled');
 var blueled = require('./routes/driveblueled');
 
 var app = express();
-
-global.__base = __dirname + '/';
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

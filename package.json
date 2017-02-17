@@ -34,6 +34,8 @@
     "pug": "~2.0.0-beta11",
     "morgan": "latest",
     "serve-favicon": "latest",
-    "wiring-pi": "latest"
+    "wiring-pi": "latest",
+    "forever": "latest",
+    "adafruit-io": "latest"
   }
 }
