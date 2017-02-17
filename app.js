@@ -13,6 +13,8 @@ var blueled = require('./routes/driveblueled');
 
 var app = express();
 
+global.__base = __dirname + '/';
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');

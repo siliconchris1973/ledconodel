@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var led = require('../public/javascripts/driveblueled');
+var led = require(__base + '/public/javascripts/driveblueled');
 
 /* GET Red LED page. */
 router.get('/', function(req, res, next) {

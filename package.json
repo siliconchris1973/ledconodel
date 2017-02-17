@@ -17,7 +17,8 @@
   },
   "scripts": {
     "start": "sudo node ./bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall" : "node -e \"var s='../src',d='node_modules/src',fs=require('fs');fs.exists(d,function(e){e||fs.symlinkSync(s,d,'dir')});\""
   },
   "homepage": "https://github.com/siliconchris1973/ledconodel#readme",
   "bugs": {
@@ -34,7 +35,6 @@
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.2",
     "wiring-pi": "~2.2.1",
-    "debug": "latest",
-    "casting": "latest"
+    "debug": "latest"
   }
 }
