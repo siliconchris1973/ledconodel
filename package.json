@@ -27,13 +27,13 @@
     "port": "9000"
   },
   "dependencies": {
-    "body-parser": "~1.16.0",
-    "cookie-parser": "~1.4.3",
+    "debug": "latest",
+    "body-parser": "latest",
+    "cookie-parser": "latest",
     "express": "latest",
     "pug": "~2.0.0-beta11",
-    "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.2",
-    "wiring-pi": "latest",
-    "debug": "latest"
+    "morgan": "latest",
+    "serve-favicon": "latest",
+    "wiring-pi": "latest"
   }
 }
