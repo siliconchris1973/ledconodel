@@ -16,9 +16,8 @@
     "url": "git+https://github.com/siliconchris1973/ledconodel.git"
   },
   "scripts": {
-    "start": "sudo node ./bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall" : "node -e \"var s='../src',d='node_modules/src',fs=require('fs');fs.exists(d,function(e){e||fs.symlinkSync(s,d,'dir')});\""
+    "start": "node ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "homepage": "https://github.com/siliconchris1973/ledconodel#readme",
   "bugs": {
