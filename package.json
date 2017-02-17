@@ -33,7 +33,7 @@
     "pug": "~2.0.0-beta11",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.2",
-    "wiring-pi": "~2.2.1",
+    "wiring-pi": "latest",
     "debug": "latest"
   }
 }
