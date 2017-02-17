@@ -20,8 +20,8 @@ try {
 /* GET LED Controller page. */
 router.get('/', function(req, res, next) {
   res.render('oneled', {
-    title: '%s LED Controller', ledcolor
-    ledstatus: '%s', isLedOn
+    title: '%s LED Controller', ledcolor,
+    ledstatus: '%s', isLedOn,
     ledcolor: '%s', ledcolor
   });
 });
