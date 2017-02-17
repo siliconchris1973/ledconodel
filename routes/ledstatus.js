@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-ledcolor = app.get('/p', function(req, res) {
+ledcolor = router.get('/p', function(req, res) {
   res.send("led is set to " + req.query.led);
 });
 
