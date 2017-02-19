@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-ledcolor = router.get('/p', function(req, res) {
+router.get('/p', function(req, res) {
+  ledcolor = req.query.led;
   res.send("led is set to " + req.query.led);
 });
+
+ledcolor = red;
 
 var statusFile = __base + '/data/'+ledcolor+'_status';
 var isLedOn = 0
