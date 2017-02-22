@@ -3,5 +3,16 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+
   body
+    header
+      h1= title
+      p Welcome to #{title}
+
     block content
+      script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+      script(src='/javascripts/global.js')
+
+  footer
+    div
+      Tiny Node.js App to operate three leds on a Raspberry PI from Amazon Alexa. / Created in 2017 by Chris

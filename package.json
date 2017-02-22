@@ -31,6 +31,8 @@
     "body-parser": "latest",
     "cookie-parser": "latest",
     "express": "latest",
+    "resource-routing": "latest",
+    "path": "latest",
     "pug": "~2.0.0-beta11",
     "morgan": "latest",
     "serve-favicon": "latest",

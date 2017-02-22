@@ -1,13 +1,7 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to the #{title}
-
   div
-    - var redled = 0
-    - var greenled = 0
-    - var blueled = 0
     - var btnType = 'info'
     - var btnSize = 'lg'
 
@@ -23,9 +17,9 @@ block content
       tbody
         tr
           td
-            a(href='/ledstatus.js&led=red') Red
+            a(href='/leds/red') Red
           td
-            case redled
+            case redStatus
               when 1
                 img.className#IdName(src="/images/red_led_1.png" alt="Red LED On")
               default
@@ -34,9 +28,9 @@ block content
             button(type='button' class='btn btn-' + btnType + ' btn-' + btnSize)
         tr
           td
-            a(href='/ledstatus.js&led=green') Green
+            a(href='/leds/green/') Green
           td
-            case greenled
+            case greenStatus
               when 1
                 img.className#IdName(src="/images/green_led_1.png" alt="Green LED On")
               default
@@ -45,9 +39,9 @@ block content
             button(type='button' class='btn btn-' + btnType + ' btn-' + btnSize)
         tr
           td
-            a(href='/ledstatus.js&led=blue') Blue
+            a(href='/leds/blue') Blue
           td
-            case blueled
+            case blueStatus
               when 1
                 img.className#IdName(src="/images/blue_led_1.png" alt="Blue LED On")
               default
