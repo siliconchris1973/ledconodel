@@ -1,5 +1,16 @@
 extends layout
 
 block content
-  p click to see the
-    a(href='/leds') leds
+  div
+    p click a link below to see the leds and their respective status
+
+  div
+    tbody
+      tr
+        td a(href='/leds') all leds
+      tr
+        td a(href='/leds/red') Red led
+      tr
+        td a(href='/leds/green') Green led
+      tr
+        td a(href='/leds/blue') Blue led
